@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>GEORES</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/geores.css">
+
+</head>
+
+<body>
+	<div style="width: 100%; padding: 20px;">
+
+		<div id="searchBox" style="margin-bottom: 10px;">
+			<form id="searchForm" autocomplete="off" class="form-inline">
+				<input id="searchInput" type="text" class="form-control" name="q"
+					placeholder="Search for postcode or location">
+				<button type="submit" class="btn btn-primary">Search</button>
+			</form>
+		</div>
+
+		<div id="map" class="map"></div>
+		
+		<div id="locationsList"></div>
+		
+
+	</div>
+
+	<script src="js/jquery-2.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/geores.js"></script>
+	<script	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ4iTJaUEnxlBY6x7H8o7gCA4_RNi-SIw&callback=initMap"></script>
+
+</body>
+</html>
