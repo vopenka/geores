@@ -17,6 +17,7 @@ import lombok.Data;
 @Table(name="streets")
 public class StreetEntity {
 	
+	
 	@Id
 	private long id;
 	
