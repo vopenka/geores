@@ -4,8 +4,10 @@ function initMap() {
 	
 	var map = new google.maps.Map(document.getElementById('map'), {
 		center : {
-			lat : 43.734400, 
-			lng : 7.420327
+			lat : 54.046709, // lancaster
+			lng : -2.800553
+			//lat : 43.734400, // monaco
+			//lng : 7.420327
 		},
 		zoom : 14,
 		draggable: true,
