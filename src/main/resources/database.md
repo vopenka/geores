@@ -35,5 +35,4 @@ FROM (SELECT a.name, ST_LineMerge(ST_Collect(a.way)) AS geom, ST_Touches(a.way,b
 	FROM planet_osm_line AS a LEFT JOIN planet_osm_line AS b ON ST_Touches(a.way,b.way) AND a.name = b.name 
 	WHERE ST_Touches(a.way,b.way) IS NOT true) AS foo;
 
-
 ```
