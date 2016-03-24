@@ -1,5 +1,10 @@
 ﻿-- First create views for temporary storage of data
 
+-- planet_osm_line may contain several lines per one street. These lines share endpoints, but in the database they are as separate features. 
+-- This would create problem when showing central point of a street as the street location. It would show central point of each street segment.
+-- Therefore these lines need to be first merged where the name is the same and the lines touch each other. 
+-- Then the central point is found and exposed as location of the street. This is found as a point on the line closest to the centroid of all points of the line.
+
 CREATE MATERIALIZED VIEW streets_view AS
 SELECT row_number() OVER () AS id, foo.name AS name, ST_Transform(ST_ClosestPoint(geom, ST_Centroid(foo.geom)),4326) AS geom
 FROM (SELECT a.name, ST_LineMerge(ST_Collect(a.way)) AS geom, ST_Touches(a.way,b.way) AS touch
