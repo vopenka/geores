@@ -1,4 +1,4 @@
-﻿-- First create views for temporary storage of data
+-- First create views for temporary storage of data
 
 -- planet_osm_line may contain several lines per one street. These lines share endpoints, but in the database they are as separate features. 
 -- This would create problem when showing central point of a street as the street location. It would show central point of each street segment.

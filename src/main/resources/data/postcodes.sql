@@ -1,4 +1,4 @@
-﻿-- Transform to wgs84
+-- Transform to wgs84
 
 SELECT gid,postcode,ST_Transform(geom,4326) AS geom
 	INTO postcodes_4326
