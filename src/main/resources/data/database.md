@@ -22,4 +22,4 @@ osm2pgsql -s -U postgres -d monaco monaco-latest.osm.pbf
 ####Run sql scripts
 Couple of tables and views need to be created.
 run sql scripts:
-
+[streets](streets.sql)
