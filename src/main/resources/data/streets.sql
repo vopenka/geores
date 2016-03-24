@@ -39,14 +39,13 @@ CREATE MATERIALIZED VIEW towns AS
 -- Create first version of 'streets' table
 -- use first ceremonials as counties.
 
-SELECT s.id AS id, s.name AS street, ctr.name AS country, cer.name AS county, s.geom AS geom 
+SELECT s.id AS id, s.name AS street, ctr.name AS country, cer.name AS county, pc.postcode AS postcode, s.geom AS geom 
 	INTO streets
 	FROM streets_view AS s 
 	LEFT JOIN countries AS ctr ON ST_Contains(ctr.geom, s.geom) 
 	LEFT JOIN ceremonials AS cer ON ST_Contains(cer.geom, s.geom)
 	LEFT JOIN postcodes_4326 AS pc ON ST_Contains(pc.geom, s.geom)
-	WHERE s.name IS NOT NULL
-LIMIT 5000;
+	WHERE s.name IS NOT NULL;
 
 ALTER TABLE streets ADD PRIMARY KEY (id);
 
