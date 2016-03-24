@@ -43,8 +43,9 @@ CREATE MATERIALIZED VIEW towns AS
 
 -- Create first version of 'streets' table
 -- use first ceremonials as counties.
+-- some polygons are overlaping in countries, therefore selecting distinct to get rid of duplicates
 
-SELECT s.id AS id, s.name AS street, ctr.name AS country, cer.name AS county, pc.postcode AS postcode, s.geom AS geom 
+SELECT DISTINCT ON (s.id) s.id AS id, s.name AS street, ctr.name AS country, cer.name AS county, pc.postcode AS postcode, s.geom AS geom 
 	INTO streets
 	FROM streets_view AS s 
 	LEFT JOIN countries AS ctr ON ST_Contains(ctr.geom, s.geom) 
